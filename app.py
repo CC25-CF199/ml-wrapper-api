@@ -10,12 +10,12 @@ app = FastAPI()
 
 model = tf.keras.models.load_model("ml_model/best_model.h5")
 IMG_SIZE = (224, 224)
-class_names = ['1st degree burn', '2nd degree burn', '3nd degree burn']
+class_names = ['1st degree burn', '2nd degree burn', '3rd degree burn']
 
 @app.get('/')
 def main():
   return {
-    "message": "Welcome!"
+    "message": "ML Wrapper FastAPI"
   }
 
 @app.post('/predict')
@@ -35,7 +35,6 @@ async def predict_image(file: UploadFile = File(...)):
   # Expands batch dimension
   input_batch = np.expand_dims(img_arr, axis=0)
 
-  # Predict
   prediction = model.predict(input_batch)
   predicted_class = int(np.argmax(prediction, axis=1)[0])
   confidence = float(np.max(prediction))
