@@ -13,7 +13,7 @@ BODY_PART_IMG_SIZE = (128, 128)
 burn_degree_model = tf.keras.models.load_model("ml_model/best_model.h5")
 body_part_model = tf.keras.models.load_model("ml_model/body_part_model.h5")
 burn_degree_class_names = ['1st degree burn', '2nd degree burn', '3rd degree burn'] 
-body_part_class_names = ['Belly', 'Ear', 'Elbow', 'Eye', 'Foot', 'Hand', 'Knee', 'Neck', 'Nose', 'Shoulders']
+body_part_class_names = ['Perut', 'Telinga', 'Siku', 'Mata', 'Kaki', 'Tangan', 'Lutut', 'Leher', 'Hidung', 'Bahu']
 
 @app.get('/')
 def main():
